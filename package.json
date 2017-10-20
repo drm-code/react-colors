@@ -5,9 +5,12 @@
   "dependencies": {
     "bootstrap": "^4.0.0-beta",
     "font-awesome": "^4.7.0",
+    "js-md5": "^0.6.1",
+    "moment": "^2.19.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.14",
+    "react-toastr": "^2.9.5"
   },
   "scripts": {
     "start": "react-scripts start",

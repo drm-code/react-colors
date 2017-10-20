@@ -26,3 +26,21 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.toast {
+  opacity: 1 !important;
+}
+
+.navbar-dark .navbar-text {
+  color: rgba(255, 255, 255, 1);
+}
+
+.logo {
+  height: 100px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}

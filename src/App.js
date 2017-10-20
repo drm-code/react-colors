@@ -1,34 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Nav from './Nav.js';
+import Home from './Home';
+import Nav from './Nav';
+import Board from './Board';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    let bestTime = localStorage["bestTime"];
+  constructor() {
+    super();
     this.state = {
-      currTime: "",
-      bestTime: bestTime
+      home: true,
+      reload: false
     }
   }
 
   render() {
     return (
-      <div className="container">
-        <Nav currTime={this.state.currTime} bestTime={this.state.bestTime} />
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
-          </p>
-        </div>
+      <div>
+        <Nav
+          home={this.home}
+          ref={nav => { this.nav = nav; }} />
+        {this.state.home && !this.state.reload && <Home />}
+        {!this.state.home && !this.state.reload &&
+          <Board
+            ref={board => { this.board = board; }}
+            finish={this.finish}
+            />}
       </div>
     );
   }
+
+  home = (homeVal, reloadVal = false) => {
+    this.setState({
+      home: homeVal,
+      reload: reloadVal
+    });
+  }
+
+  finish = () => this.board.setTime(this.nav.finish());    
 }
 
 export default App;
